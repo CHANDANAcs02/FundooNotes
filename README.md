@@ -118,7 +118,7 @@ Custom exceptions are used for situations such as:
 | Spring Data JPA | Database persistence |
 | Spring Security | Application security |
 | JWT | Authentication |
-| MySQL | Database |
+| PostgreSQL | Database |
 | Redis | Token caching |
 | JMS | Messaging |
 | Artemis | Message broker |
