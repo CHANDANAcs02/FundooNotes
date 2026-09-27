@@ -1,132 +1,154 @@
 # FundooNotes
 
-## Project Overview
+## 📌 Project Overview
 
-FundooNotes is a Spring Boot based **Notes Management Application** that allows users to register, login, create and manage notes, labels, reminders, and attachments.
+FundooNotes is a **Spring Boot based Notes Management System** designed to provide secure and organized management of personal notes.
 
-The application provides secure authentication using **JWT**, stores data using **Spring Data JPA**, and uses **Redis and JMS messaging** for additional services.
+The application allows users to register and authenticate securely, create and manage notes, organize notes using labels, set reminders, and manage attachments.
 
-## What the Project Does
+The project also demonstrates the use of **Spring Security, JWT authentication, Redis, JMS messaging, Spring Data JPA, Spring AOP, and OpenAPI/Swagger** in a real-world backend application.
 
-The application provides the following features:
+---
 
-- User registration and login
+## 🚀 Features
+
+### 👤 User Management
+
+- User registration
+- User login
 - JWT-based authentication
-- Create, update, view and delete notes
-- Create and manage labels
-- Add labels to notes
-- Create and manage reminders
-- Add attachments to notes
 - Password reset functionality
-- Redis-based token management
-- JMS-based notification messaging
-- Global exception handling
-- API documentation using OpenAPI / Swagger
-- CORS configuration
-- Logging using Spring AOP
+- Secure API access using Spring Security
 
-## Technologies Used
+### 📝 Notes Management
 
-- Java
-- Spring Boot
-- Spring MVC
-- Spring Data JPA
+Users can:
+
+- Create notes
+- View notes
+- Update notes
+- Delete notes
+- Manage note details
+- Organize notes using labels
+- Set reminders for notes
+- Add attachments to notes
+
+### 🏷️ Label Management
+
+- Create labels
+- View labels
+- Update labels
+- Delete labels
+- Associate labels with notes
+
+### ⏰ Reminder Management
+
+- Create reminders
+- View reminders
+- Update reminders
+- Delete reminders
+- Associate reminders with notes
+
+### 📎 Attachment Management
+
+- Add attachments to notes
+- Retrieve attachments
+- Manage note attachments
+
+### 🔐 Security
+
+The application uses:
+
 - Spring Security
-- JWT
-- MySQL
-- Redis
-- JMS / Artemis
-- Maven
-- OpenAPI / Swagger
-- Spring AOP
+- JWT authentication
+- JWT authentication filter
+- Custom security configuration
+- Token validation
 
-## Project Structure
+### ⚡ Redis
 
-src/main/java/com/bridgelabz/fundoo/notes
-│
-├── aspect
-├── config
-├── controller
-├── dto
-├── entity
-├── exception
-├── jms
-├── redis
-├── repository
-├── security
-└── service
+Redis is used for token-related caching and management.
 
-**Main Modules**
-Authentication
-User registration
-User login
-JWT token generation and validation
-Password reset
-Notes
-Create notes
-Update notes
-View notes
-Delete notes
-Labels
-Create labels
-Update labels
-Delete labels
-Manage labels for notes
-Reminders
-Create reminders
-Update reminders
-Delete reminders
-Attachments
-Add attachments
-Retrieve attachments
-Manage note attachments
-Security
+### 📨 JMS Messaging
 
-The application uses Spring Security and JWT authentication to protect secured APIs.
+JMS with Artemis is used for asynchronous notification messaging.
 
-**Messaging**
+The project contains:
 
-JMS and Artemis are used for notification messaging between application components.
+- Notification Producer
+- Notification Consumer
+- JMS configuration
 
-**Redis**
+### 📊 Logging
 
-Redis is used for token caching and token management.
+Spring AOP is used to implement application logging through an aspect-oriented approach.
 
-**API Documentation**
+### 📖 API Documentation
 
-OpenAPI / Swagger is configured to provide interactive API documentation.
+OpenAPI / Swagger configuration is included for API documentation and testing.
 
-**Architecture**
+### 🌐 CORS
+
+CORS configuration is provided to allow controlled communication between the backend and frontend applications.
+
+### ⚠️ Exception Handling
+
+The application provides centralized exception handling using a global exception handler.
+
+Custom exceptions are used for situations such as:
+
+- User not found
+- Note not found
+- Label not found
+- Reminder not found
+- Attachment not found
+- Duplicate email
+- Invalid password
+- Invalid token
+
+---
+
+## 🛠️ Technologies Used
+
+| Technology | Purpose |
+|------------|---------|
+| Java | Programming language |
+| Spring Boot | Application framework |
+| Spring MVC | REST API development |
+| Spring Data JPA | Database persistence |
+| Spring Security | Application security |
+| JWT | Authentication |
+| MySQL | Database |
+| Redis | Token caching |
+| JMS | Messaging |
+| Artemis | Message broker |
+| Maven | Build and dependency management |
+| Spring AOP | Logging |
+| OpenAPI / Swagger | API documentation |
+
+---
+
+## 🏗️ Project Architecture
 
 The project follows a layered architecture:
 
-Controller
-    ↓
-Service
-    ↓
-Repository
-    ↓
-Database
-
-Supporting components such as Security, Redis, JMS, AOP, and Exception Handling are integrated into the application.
-
-**How to Run**
-Clone the repository.
-Configure the database in application.properties.
-Configure Redis and Artemis if required.
-Build the project using Maven.
-Run the Spring Boot application.
-mvn spring-boot:run
-Purpose
-
-The project demonstrates the development of a real-world Spring Boot application using:
-
-REST APIs
-Authentication and Authorization
-Database persistence
-JWT Security
-Redis
-JMS Messaging
-Exception Handling
-AOP Logging
-OpenAPI Documentation
+```text
+                    Client
+                       |
+                       v
+                +--------------+
+                | Controllers  |
+                +--------------+
+                       |
+                       v
+                +--------------+
+                |   Services   |
+                +--------------+
+                       |
+                       v
+                +--------------+
+                | Repositories  |
+                +--------------+
+                       |
+                       v
+                   Database
